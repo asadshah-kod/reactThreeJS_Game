@@ -179,3 +179,4 @@ const config: Record<string, unknown> = {
   },
   tailwindcss: {},
 };
+export default config;

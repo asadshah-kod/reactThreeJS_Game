@@ -1,7 +1,7 @@
 // https://umijs.org/config/
 
 import { join } from 'node:path';
-import { defineConfig } from '@umijs/max';
+// import { defineConfig } from '@umijs/max';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 
@@ -16,7 +16,7 @@ const { UMI_ENV = 'dev' } = process.env;
  */
 const PUBLIC_PATH: string = '/';
 
-export default defineConfig({
+const config: Record<string, unknown> = {
   /**
    * @name 开启 hash 模式
    * @description 让 build 之后的产物包含 hash 后缀。通常用于增量发布和避免浏览器加载缓存。
@@ -170,11 +170,12 @@ export default defineConfig({
   mock: {
     include: ['mock/**/*', 'src/pages/**/_mock.ts'],
   },
-  utoopack: {},
+  // utoopack: {},
   requestRecord: {},
   exportStatic: {},
+  esbuildMinifyIIFE: true,
   define: {
     'process.env.CI': process.env.CI,
   },
   tailwindcss: {},
-});
+};
